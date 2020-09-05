@@ -1,0 +1,54 @@
+<HTML>
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache"/>
+<META HTTP-EQUIV="Expires" CONTENT="-1"/>
+<HEAD>
+<TITLE>redirect</TITLE>
+<script type="text/javascript">
+function redirectRequest()
+{
+    var uri = "https:\/\/eulen.taleo.net\/careersection\/careersection\/common\/search\/jobsearch.ftl?lang=es&portal=8170431885&searchtype=3&f=LOCATION(1570431885)&s=1%7CD&a=null&multiline=false\/favicon.ico";
+if (getAnchors() != null)
+    {
+        var redirectionURI = extractParam(uri, "redirectionURI");
+        var targetURI = extractParam(uri, "TARGET");
+        uri = uri.replace(redirectionURI, redirectionURI + encodeURIComponent(getAnchors()));
+        uri = uri.replace(targetURI, targetURI + encodeURIComponent(getAnchors()));
+        uri += getAnchors();
+    }
+    document.location = uri;
+}
+function extractParam(uri, param)
+{
+    if (uri.indexOf(param) < 0)
+    {
+        return null;
+    }
+    var start = uri.indexOf(param);
+    var end = uri.indexOf("&", uri.indexOf(param) + 1);
+    if (end >= 0)
+    {
+        return uri.substring(start, end);
+    }
+    else {
+        return uri.substring(start);
+    }
+}
+function getAnchors()
+{
+    if (location.href.indexOf("#") < 0)
+    {
+        return null;
+     }
+    else
+    {
+       return location.href.substring(location.href.indexOf("#"));
+    }
+}
+</script>
+</HEAD>
+<body>
+</body>
+<script type="text/javascript">
+redirectRequest();
+</script>
+</html>
